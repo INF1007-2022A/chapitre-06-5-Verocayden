@@ -12,7 +12,7 @@ def check_brackets(text, brackets): # FINISHED
 		if caracter in op_brackets:
 			trace.append(caracter)
 		elif caracter in cl_brackets:
-			if op_brackets[cl_brackets.index(caracter)] in trace:
+			if op_brackets[cl_brackets.index(caracter)] in trace or trace[-1] == cl_brackets[cl_brackets.index(caracter)] or len(trace) != 0:
 				trace.pop() # Like a pile
 			else: # Incorrect order
 				return False
@@ -62,7 +62,7 @@ def check_tags(full_text, tag_names, comment_tags): # DEBUG
 		if word in op_tags:
 			trace.append(word)
 		elif word in cl_tags:
-			if op_tags[cl_tags.index(word)] in trace:
+			if op_tags[cl_tags.index(word)] in trace or trace[-1] == cl_brackets[cl_brackets.index(caracter)] or len(trace) != 0:
 				trace.pop()
 			else: # Incorrect order
 				return False
